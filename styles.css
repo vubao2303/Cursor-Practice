@@ -1,0 +1,267 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --text: #14213d;
+  --muted: #6c7a89;
+  --accent: #4b7bec;
+  --accent-strong: #3867d6;
+  --border: rgba(20, 33, 61, 0.08);
+  --shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="dark"]:root,
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --panel: #131c31;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --border: rgba(226, 232, 240, 0.08);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.app {
+  width: min(620px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app__header {
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow);
+}
+
+.app__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.app__subtitle {
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+.theme-toggle button {
+  background: transparent;
+  border: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s ease;
+}
+
+.theme-toggle button[aria-pressed="true"] {
+  background: var(--panel);
+  color: var(--accent);
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.panel--toolbar {
+  justify-content: space-between;
+}
+
+input[type="text"] {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 16px;
+  background: transparent;
+  color: var(--text);
+}
+
+input[type="text"]:focus {
+  outline: 2px solid var(--accent);
+}
+
+button {
+  border-radius: 14px;
+  border: 0;
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button.secondary {
+  background: rgba(75, 123, 236, 0.12);
+  color: var(--accent);
+}
+
+.filters {
+  display: inline-flex;
+  background: rgba(75, 123, 236, 0.08);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.filter {
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 14px;
+}
+
+.filter.is-active {
+  background: var(--panel);
+  color: var(--accent);
+}
+
+#clear-completed {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel);
+  padding: 16px 20px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid transparent;
+}
+
+.todo.is-completed {
+  opacity: 0.6;
+  border-color: rgba(75, 123, 236, 0.3);
+}
+
+.todo__body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo__text {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.todo.is-completed .todo__text {
+  text-decoration: line-through;
+}
+
+.todo__checkbox {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--accent);
+}
+
+.todo__delete {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid transparent;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.todo__delete:hover {
+  border-color: var(--border);
+}
+
+.empty-state {
+  border: 2px dashed var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+  background: rgba(75, 123, 236, 0.05);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 540px) {
+  body {
+    padding: 16px;
+  }
+
+  .app__header,
+  .panel {
+    padding: 20px;
+  }
+
+  .panel--toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #clear-completed {
+    width: 100%;
+  }
+}
