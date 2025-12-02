@@ -1,23 +1,24 @@
-# Simple Todo List
+# Smart Todo List
 
-A tiny static todo app served with `lite-server`. Use it to add and remove quick tasks.
+A single-page todo list built with vanilla JavaScript, HTML, and CSS. Add tasks, toggle their completion state, switch between filters, and keep everything in sync via `localStorage`.
 
-## Getting started
+## Features
+- Keyboard-friendly input with Enter-to-add support
+- Filters for all, active, and completed tasks
+- Bulk "clear completed" control
+- Automatic persistence in the browser via `localStorage`
+- Light/dark theme toggle with saved preference
 
-```bash
-npm install
-npm start
+## Getting Started
+1. Clone or download this repository.
+2. Open `index.html` in your preferred browser.
+3. Optionally, serve the directory with any static server (e.g. `python -m http.server 8000`).
+
+Once loaded, enter a task description and press `Enter` or click **Add**. Toggle items via their checkbox, delete with the ✕ control, and clear completed items using the toolbar button.
+
+## Project Structure
 ```
-
-`npm start` launches `lite-server`, opens your default browser, and serves the files in `public/`. The page reloads automatically whenever you change the HTML, CSS, or JavaScript.
-
-## Project structure
-
-- `public/index.html` – single-page todo UI and logic.
-- `package.json` – npm metadata and scripts.
-
-## Customization ideas
-
-- Add persistence via `localStorage`.
-- Replace the inline styles with your favorite CSS framework.
-- Extend the UI with edit/complete states or filters.
+index.html   # Markup and component skeleton
+styles.css   # Visual design and layout rules
+app.js       # Todo list interactions and persistence logic
+```
