@@ -1,0 +1,24 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "readme  this is just about readme",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server --baseDir=public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vubao2303/Cursor-Practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vubao2303/Cursor-Practice/issues"
+  },
+  "homepage": "https://github.com/vubao2303/Cursor-Practice#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
